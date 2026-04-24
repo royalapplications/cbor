@@ -1,0 +1,26 @@
+set(LIBCBOR_LIBRARY "${CMAKE_CURRENT_LIST_DIR}/lib/libcbor.a")
+set(LIBCBOR_LIBRARIES "${LIBCBOR_LIBRARY}")
+set(LIBCBOR_INCLUDE_DIR "${CMAKE_CURRENT_LIST_DIR}/include")
+set(LIBCBOR_INCLUDE_DIRS "${LIBCBOR_INCLUDE_DIR}")
+
+if(NOT TARGET cbor)
+  add_library(cbor STATIC IMPORTED)
+
+  set_target_properties(cbor PROPERTIES
+    IMPORTED_LOCATION "${LIBCBOR_LIBRARY}"
+    INTERFACE_INCLUDE_DIRECTORIES "${LIBCBOR_INCLUDE_DIRS}"
+  )
+endif()
+
+if(NOT TARGET libcbor::libcbor)
+  add_library(libcbor::libcbor STATIC IMPORTED)
+
+  set_target_properties(libcbor::libcbor PROPERTIES
+    IMPORTED_LOCATION "${LIBCBOR_LIBRARY}"
+    INTERFACE_INCLUDE_DIRECTORIES "${LIBCBOR_INCLUDE_DIRS}"
+  )
+endif()
+
+set(CBOR_FOUND TRUE)
+set(LIBCBOR_FOUND TRUE)
+set(libcbor_FOUND TRUE)
