@@ -31,13 +31,13 @@ jobs:
 
     steps:
     - name: checkout
-      uses: actions/checkout@v6
+      uses: actions/checkout@v7
 
     - name: build
       run: scripts/build.sh
 
     - name: publish native libraries
-      uses: actions/upload-artifact@v6
+      uses: actions/upload-artifact@v7
       with:
         name: "cbor-${{ env.CBOR_VERSION }}"
         retention-days: 5
@@ -48,7 +48,7 @@ jobs:
           build/cbor-build-${{ env.CBOR_VERSION }}/macosx/**
 
     - name: publish xcframework
-      uses: actions/upload-artifact@v6
+      uses: actions/upload-artifact@v7
       with:
         name: "cbor-${{ env.CBOR_VERSION }}.xcframework"
         retention-days: 5
@@ -62,7 +62,7 @@ jobs:
 
     - name: create release
       if: "success() && env.PUBLISH_RELEASE == '1'"
-      uses: softprops/action-gh-release@v2
+      uses: softprops/action-gh-release@v3
       with:
         name: "${{ env.CBOR_VERSION }}"
         draft: true
