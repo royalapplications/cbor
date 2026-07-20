@@ -2,7 +2,7 @@
 
 set -e
 
-CBOR_VERSION_STABLE="0.13.0" # https://github.com/PJK/libcbor/releases/tag/v0.13.0
+CBOR_VERSION_STABLE="0.14.0" # https://github.com/PJK/libcbor/releases/tag/v0.14.0
 IOS_VERSION_MIN="13.4"
 MACOS_VERSION_MIN="11.0"
 CODESIGN_ID="-"
