@@ -23,8 +23,8 @@ CBOR_VERSION_FULL="${CBOR_VERSION}"
 CBOR_VERSION_DOWNLOAD="${CBOR_VERSION_FULL%%-*}"
 
 if [[ ! -f "${BUILD_ROOT_DIR}/v${CBOR_VERSION_DOWNLOAD}.tar.gz" ]]; then
-  echo "Checking official GitHub release v${CBOR_VERSION_DOWNLOAD}"
-  curl -fL "https://api.github.com/repos/PJK/libcbor/releases/tags/v${CBOR_VERSION_DOWNLOAD}" -o "${BUILD_ROOT_DIR}/v${CBOR_VERSION_DOWNLOAD}.release.json"
+  # echo "Checking official GitHub release v${CBOR_VERSION_DOWNLOAD}"
+  # curl -fL "https://api.github.com/repos/PJK/libcbor/releases/tags/v${CBOR_VERSION_DOWNLOAD}" -o "${BUILD_ROOT_DIR}/v${CBOR_VERSION_DOWNLOAD}.release.json"
 
   echo "Downloading v${CBOR_VERSION_DOWNLOAD}.tar.gz"
   curl -fL "https://github.com/PJK/libcbor/archive/refs/tags/v${CBOR_VERSION_DOWNLOAD}.tar.gz" -o "${BUILD_ROOT_DIR}/v${CBOR_VERSION_DOWNLOAD}.tar.gz"
